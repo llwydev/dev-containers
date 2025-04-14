@@ -1,0 +1,39 @@
+services:
+  multi-svc-env:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    network_mode: host
+    volumes:
+      - ..:/workspace:cached
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ~/.aws:/home/vscode/.aws:ro
+    environment:
+      - SHELL=/bin/bash
+      - AWS_PROFILE=default
+    user: 1000:1000
+    privileged: true
+    entrypoint: /bin/bash -c "while sleep 1000; do :; done"
+  
+  aws-cli:
+    image: amazon/aws-cli:latest
+    container_name: aws-cli
+    network_mode: host
+    volumes:
+      - ~/.aws:/home/vscode/.aws:ro
+      - ..:/workspace
+    entrypoint: ["sleep", "infinity"]
+    privileged: true
+
+  python-3.9:
+    image: python:3.9.22-slim
+    container_name: python-3.9
+    network_mode: host
+    volumes:
+      - ..:/workspace
+    environment:
+      - PYTHONPATH=/workspace
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+    working_dir: /workspace
+    entrypoint: ["sleep", "infinity"]

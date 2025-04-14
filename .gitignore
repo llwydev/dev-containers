@@ -21,6 +21,5 @@ build/
 Thumbs.db
 
 # Container specific
-.devcontainer/
 .docker/
 *.log

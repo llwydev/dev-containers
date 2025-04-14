@@ -1,0 +1,9 @@
+{
+    "name": "BaseImage-01",
+    "build": {
+        "context": ".",
+        "dockerfile": "Dockerfile"
+    },
+    "workspaceFolder": "/home/vscode",
+    "remoteUser": "vscode"
+}
