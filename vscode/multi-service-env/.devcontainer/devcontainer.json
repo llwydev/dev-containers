@@ -9,7 +9,12 @@
         "vscode": {
             "extensions": [
                 "ms-azuretools.vscode-docker",
-                "AmazonWebServices.aws-toolkit-vscode"
+                "AmazonWebServices.aws-toolkit-vscode",
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-toolsai.jupyter",
+                "ms-kubernetes-tools.vscode-kubernetes-tools",
+                "redhat.vscode-yaml"
             ]
         }
     },
