@@ -1,0 +1,26 @@
+# Environment Variables
+.env
+*.env
+env/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build and dependency directories
+node_modules/
+dist/
+build/
+.cache/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Container specific
+.devcontainer/
+.docker/
+*.log
