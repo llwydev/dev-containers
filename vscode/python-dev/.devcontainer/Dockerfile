@@ -1,4 +1,4 @@
-FROM llwydev/vcd-python:base AS base-image
+FROM llwydev/vdc-python:base AS base-image
 
 # COPY .env/ /tmp/.env
 

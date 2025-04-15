@@ -6,8 +6,9 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "HashiCorp.terraform",
-                "AmazonWebServices.aws-toolkit-vscode"
+                "AmazonWebServices.aws-toolkit-vscode",
+                "GitLab.gitlab-workflow",
+                "HashiCorp.terraform"
             ]
         },
         "settings": {

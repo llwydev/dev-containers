@@ -1,6 +1,6 @@
 services:
   dev-container:
-    container_name: python-dev
+    container_name: python-env
     build:
       context: .
       dockerfile: Dockerfile
@@ -34,7 +34,7 @@ services:
     networks:
       - dev-net
     depends_on:
-      - python-dev
+      - dev-container
 
   terraform:
     container_name: terraform
@@ -42,11 +42,11 @@ services:
     volumes:
       - ./terraform:/workspace
     working_dir: /workspace
-    entrypoint: ["terraform"]
+    entrypoint: ["sh", "-c", "while true; do sleep 1000; done"]
     networks:
       - dev-net
     depends_on:
-      - python-dev
+      - dev-container
 
 volumes:
   db_data:
