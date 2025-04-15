@@ -4,17 +4,14 @@
     "service": "multi-svc-env",
     "workspaceFolder": "/workspace",
     "remoteUser": "vscode",
-    "postStartCommand": "sudo chown root:docker /var/run/docker.sock && sudo chmod 660 /var/run/docker.sock",
+    "postStartCommand": {
+        "chown": ["sudo", "-n", "chown", "root:docker", "/var/run/docker.sock"],
+        "chmod": ["sudo", "-n", "chmod", "660", "/var/run/docker.sock"]
+    },
     "customizations": {
         "vscode": {
             "extensions": [
-                "ms-azuretools.vscode-docker",
-                "AmazonWebServices.aws-toolkit-vscode",
-                "ms-python.python",
-                "ms-python.debugpy",
-                "ms-toolsai.jupyter",
-                "ms-kubernetes-tools.vscode-kubernetes-tools",
-                "redhat.vscode-yaml"
+                "AmazonWebServices.aws-toolkit-vscode"
             ]
         }
     },
