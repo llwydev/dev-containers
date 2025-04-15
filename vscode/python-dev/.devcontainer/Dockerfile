@@ -1,0 +1,1 @@
+FROM vscode-python:latest

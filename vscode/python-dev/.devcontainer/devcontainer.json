@@ -1,0 +1,22 @@
+{
+    "name": "Python Dev",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "python-dev,database,terraform",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "HashiCorp.terraform",
+                "AmazonWebServices.aws-toolkit-vscode"
+            ]
+        },
+        "settings": {
+            "terminal.integrated.shell.linux": "/bin/bash"
+        } 
+    },
+    "postCreateCommand": {
+        "chown": ["sudo", "chown", "root:docker", "/var/run/docker.sock"],
+        "chmod": ["sudo", "chmod", "660", "/var/run/docker.sock"]
+    },
+    "forwardPorts": [5432]
+}

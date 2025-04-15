@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  python-dev:
+    container_name: python-dev
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+      volumes:
+        - ..:/workspace
+        - /var/run/docker.sock:/var/run/docker.sock
+        - ~/.aws:/home/vscode/.aws
+    networks:
+      - dev-net
+
+  database:
+    image: postgres:latest
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - dev-net
+
+  terraform:
+    image: hashicorp/terraform:latest
+    volumes:
+      - ./terraform:/workspace
+    working_dir: /workspace
+    entrypoint: ["terraform"]
+    networks:
+      - dev-net
+
+volumes:
+  db_data:
+
+networks:
+  dev-net:
+    driver: bridge
