@@ -1,7 +1,7 @@
 {
     "name": "Python Dev",
     "dockerComposeFile": "docker-compose.yml",
-    "service": "dev-container",
+    "service": "devcontainer",
     "workspaceFolder": "/workspace",
     "customizations": {
         "vscode": {
@@ -9,7 +9,8 @@
                 "AmazonWebServices.aws-toolkit-vscode",
                 "GitLab.gitlab-workflow",
                 "HashiCorp.terraform",
-                "ms-ossdata.vscode-postgresql"
+                "ms-ossdata.vscode-postgresql",
+                "redhat.vscode-yaml"
             ]
         },
         "settings": {
@@ -17,9 +18,9 @@
         } 
     },
     "postCreateCommand": {
-        "no-press-key": ["sudo", "echo", "'y' | /usr/bin/apt-get -y install"],
-        "chown": ["sudo", "chown", "root:docker", "/var/run/docker.sock"],
-        "chmod": ["sudo ", "chmod", "660", "/var/run/docker.sock"]
+        "chown": ["chown", "root:docker", "/var/run/docker.sock"],
+        "chmod": ["chmod", "660", "/var/run/docker.sock"],
+        "echo": ["echo", "-e", "'\\n'"]
     },
     "forwardPorts": [5432]
 }
