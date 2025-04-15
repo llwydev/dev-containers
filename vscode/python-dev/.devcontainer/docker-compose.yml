@@ -1,22 +1,33 @@
-version: '3.8'
-
 services:
   python-dev:
     container_name: python-dev
     build:
       context: .
-      dockerfile: .devcontainer/Dockerfile
-      volumes:
-        - ..:/workspace
-        - /var/run/docker.sock:/var/run/docker.sock
-        - ~/.aws:/home/vscode/.aws
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ~/.aws:/home/vscode/.aws
+    environment:
+      - PYTHONUNBUFFERED=1
+      - SHELL=/bin/bash
+    working_dir: /workspace
+    user: vscode
+    entrypoint:
+      - /bin/bash
+    command:
+      - -c
+      - |
+        while true; do
+          sleep 1000;
+        done
     networks:
       - dev-net
 
   database:
-    image: postgres:latest
+    image: bitnami/postgresql:17 # pulling local image
     env_file:
-      - .env
+      - tmp/.env
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -27,15 +38,19 @@ services:
       - db_data:/var/lib/postgresql/data
     networks:
       - dev-net
+    depends_on:
+      - python-dev
 
   terraform:
-    image: hashicorp/terraform:latest
+    image: hashicorp/terraform:1.11 # pulling local image
     volumes:
       - ./terraform:/workspace
     working_dir: /workspace
     entrypoint: ["terraform"]
     networks:
       - dev-net
+    depends_on:
+      - python-dev
 
 volumes:
   db_data:
