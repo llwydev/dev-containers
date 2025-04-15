@@ -8,7 +8,8 @@
             "extensions": [
                 "AmazonWebServices.aws-toolkit-vscode",
                 "GitLab.gitlab-workflow",
-                "HashiCorp.terraform"
+                "HashiCorp.terraform",
+                "ms-ossdata.vscode-postgresql"
             ]
         },
         "settings": {
@@ -16,8 +17,9 @@
         } 
     },
     "postCreateCommand": {
+        "no-press-key": ["sudo", "echo", "'y' | /usr/bin/apt-get -y install"],
         "chown": ["sudo", "chown", "root:docker", "/var/run/docker.sock"],
-        "chmod": ["sudo", "chmod", "660", "/var/run/docker.sock"]
+        "chmod": ["sudo ", "chmod", "660", "/var/run/docker.sock"]
     },
     "forwardPorts": [5432]
 }
