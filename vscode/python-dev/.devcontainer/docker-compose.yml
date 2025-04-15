@@ -13,18 +13,20 @@ services:
       - SHELL=/bin/bash
     working_dir: /workspace
     user: vscode
-    entrypoint:
-      - /bin/bash
-    command:
-      - -c
-      - |
-        while true; do
-          sleep 1000;
-        done
+    entrypoint: ["/bin/bash", "-c", "while true; do sleep 1000; done"]
+    # entrypoint:
+    #   - /bin/bash
+    # command:
+    #   - -c
+    #   - |
+    #     while true; do
+    #       sleep 1000;
+    #     done
     networks:
       - dev-net
 
   database:
+    container_name: postgresql
     image: bitnami/postgresql:17 # pulling local image
     env_file:
       - tmp/.env
@@ -42,6 +44,7 @@ services:
       - python-dev
 
   terraform:
+    container_name: terraform
     image: hashicorp/terraform:1.11 # pulling local image
     volumes:
       - ./terraform:/workspace
