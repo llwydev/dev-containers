@@ -5,5 +5,22 @@
         "dockerfile": "Dockerfile"
     },
     "workspaceFolder": "/workspace",
-    "remoteUser": "vscode"
+    "remoteUser": "vscode",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                // Python Extensions
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.debugpy",
+                // Frameworks: Django & Flask
+                "batisteo.vscode-django",
+                "RabinHansda.flask-builder",
+                "WaseemAkram.jinja-snippets-flask",
+                // AI Tools
+                "VisualStudioExptTeam.vscodeintellicode",
+                "Codeium.codeium"
+            ]
+        }
+    }
 }
