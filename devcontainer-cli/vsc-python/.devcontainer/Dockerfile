@@ -21,6 +21,9 @@ RUN /tmp/install_kubectl.sh
 # Install AWS CLI
 RUN /tmp/install_aws_cli.sh
 
+# Install Terraform
+RUN /tmp/install_terraform.sh
+
 # Clean up scripts
 RUN rm -f /tmp/*.sh
 

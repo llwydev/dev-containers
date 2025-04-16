@@ -20,7 +20,7 @@ services:
 
   database:
     container_name: postgresql
-    image: bitnami/postgresql:17 # pulling local image
+    image: bitnami/postgresql:latest
     env_file:
       - .env
     environment:
@@ -38,7 +38,7 @@ services:
 
   terraform:
     container_name: terraform
-    image: hashicorp/terraform:1.11 # pulling local image
+    image: hashicorp/terraform:latest
     volumes:
       - ../DEV/terraform:/workspace
     working_dir: /workspace

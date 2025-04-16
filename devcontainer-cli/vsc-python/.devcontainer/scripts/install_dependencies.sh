@@ -8,6 +8,7 @@ apt-get install -y --no-install-recommends \
     ca-certificates \
     sudo \
     build-essential \
+    lsb-release \
     vim \
     nano \
     curl \

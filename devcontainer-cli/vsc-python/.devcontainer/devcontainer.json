@@ -4,7 +4,6 @@
         "context": ".",
         "dockerfile": "Dockerfile"
     },
-    "workspaceFolder": "/workspace",
     "remoteUser": "vscode",
     "customizations": {
         "vscode": {
@@ -19,7 +18,9 @@
                 "WaseemAkram.jinja-snippets-flask",
                 // AI Tools
                 "VisualStudioExptTeam.vscodeintellicode",
-                "Codeium.codeium"
+                "Codeium.codeium",
+                // Others
+                "redhat.vscode-yaml"
             ]
         }
     }
