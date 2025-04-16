@@ -17,10 +17,10 @@
             "terminal.integrated.shell.linux": "/bin/bash"
         } 
     },
-    "postCreateCommand": {
-        "chown": ["chown", "root:docker", "/var/run/docker.sock"],
-        "chmod": ["chmod", "660", "/var/run/docker.sock"],
-        "echo": ["echo", "-e", "'\\n'"]
-    },
+    "postCreateCommand": "alias tf='docker exec -it terraform terraform' && sudo chown -R root:$USER /var/run/docker.sock && sudo chmod 660 /var/run/docker.sock",
+    // "postCreateCommand": {
+    //     "chown": ["sudo", "chown", "root:docker", "/var/run/docker.sock"],
+    //     "chmod": ["sudo", "chmod", "660", "/var/run/docker.sock"]
+    // },
     "forwardPorts": [5432]
 }

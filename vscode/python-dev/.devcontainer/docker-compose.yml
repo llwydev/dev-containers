@@ -5,10 +5,9 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ../DEV:/workspace
+      - ..:/workspace
       - ~/.aws:/home/vscode/.aws:ro
       - db_data:/var/lib/postgresql/data:ro
-      - terraform_bin:/bin/terraform
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - PYTHONUNBUFFERED=1
@@ -41,8 +40,7 @@ services:
     container_name: terraform
     image: hashicorp/terraform:1.11 # pulling local image
     volumes:
-      - ./terraform:/workspace
-      - terraform_bin:/bin/terraform
+      - ../DEV/terraform:/workspace
     working_dir: /workspace
     entrypoint: ["sh", "-c", "while true; do sleep 1000; done"]
     networks:
@@ -52,7 +50,6 @@ services:
 
 volumes:
   db_data:
-  terraform_bin:
 
 networks:
   dev-net:
