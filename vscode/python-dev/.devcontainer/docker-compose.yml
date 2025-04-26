@@ -8,6 +8,7 @@ services:
       - ..:/workspace
       - ~/.aws:/home/vscode/.aws:ro
       - db_data:/var/lib/postgresql/data:ro
+      - ~/.terraform.d:/home/vscode/.terraform.d:ro
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - PYTHONUNBUFFERED=1
@@ -31,18 +32,6 @@ services:
       - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
-    networks:
-      - dev-net
-    depends_on:
-      - devcontainer
-
-  terraform:
-    container_name: terraform
-    image: hashicorp/terraform:latest
-    volumes:
-      - ../DEV/terraform:/workspace
-    working_dir: /workspace
-    entrypoint: ["sh", "-c", "while true; do sleep 1000; done"]
     networks:
       - dev-net
     depends_on:

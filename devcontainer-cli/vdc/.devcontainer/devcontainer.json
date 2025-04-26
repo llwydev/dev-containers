@@ -1,0 +1,32 @@
+{
+    "name": "Dev Container - Flask",
+    "build": {
+        "context": ".",
+        "dockerfile": "Dockerfile"
+    },
+    "remoteUser": "vscode",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                // Language: Python
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.debugpy",
+                
+                // Scaffolding: Flask
+                "rabinHansda.flask-builder",
+                
+                // Tools: AI
+                "VisualStudioExptTeam.vscodeintellicode",
+                "Codeium.codeium",
+                "ms-toolsai.jupyter",
+                
+                // Tools: Version Control
+                "GitHub.copilot",
+                
+                // Linting: Trunk
+                "trunk.io"
+            ]
+        }
+    }
+}

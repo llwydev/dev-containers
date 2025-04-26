@@ -3,6 +3,10 @@
 *.env
 env/
 
+# Ignore vscode config
+*.code-workspace
+*.code-workspace.ignore
+
 # IDE and editor files
 .vscode/
 .idea/
