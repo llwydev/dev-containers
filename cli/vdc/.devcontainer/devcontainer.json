@@ -7,24 +7,25 @@
     "remoteUser": "vscode",
     "customizations": {
         "vscode": {
-            "extensions": [
-                // Language: Python
-                "ms-python.python",
-                "ms-python.vscode-pylance",
+            "extensions": [ 
+                // Python
                 "ms-python.debugpy",
+                "ms-python.python",
+                "ms-python.vscode-pylance", 
                 
-                // Scaffolding: Flask
-                "rabinHansda.flask-builder",
-                
-                // Tools: AI
-                "VisualStudioExptTeam.vscodeintellicode",
+                // Code Completion
                 "Codeium.codeium",
                 "ms-toolsai.jupyter",
+                "VisualStudioExptTeam.vscodeintellicode",
+
+                // Misc
+                "ms-toolsai.jupyter-keymap",
+                "ms-vscode.speech",
                 
-                // Tools: Version Control
-                "GitHub.copilot",
-                
-                // Linting: Trunk
+                 // Scaffolding & Templates
+                 "rabinHansda.flask-builder",
+
+                // Linting & Formatting
                 "trunk.io"
             ]
         }
