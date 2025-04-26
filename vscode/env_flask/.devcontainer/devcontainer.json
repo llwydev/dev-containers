@@ -1,7 +1,7 @@
 {
-    "name": "Python Dev",
+    "name": "VDC Flask",
     "dockerComposeFile": "docker-compose.yml",
-    "service": "devcontainer",
+    "service": "env-flask",
     "workspaceFolder": "/workspace",
     "customizations": {
         "vscode": {
@@ -9,18 +9,13 @@
                 "AmazonWebServices.aws-toolkit-vscode",
                 "GitLab.gitlab-workflow",
                 "HashiCorp.terraform",
-                "ms-ossdata.vscode-postgresql",
-                "redhat.vscode-yaml"
+                "ms-ossdata.vscode-postgresql"
             ]
         },
         "settings": {
             "terminal.integrated.shell.linux": "/bin/bash"
         } 
     },
-    "postCreateCommand": "alias tf='docker exec -it terraform terraform' && sudo chown -R root:$USER /var/run/docker.sock && sudo chmod 660 /var/run/docker.sock",
-    // "postCreateCommand": {
-    //     "chown": ["sudo", "chown", "root:docker", "/var/run/docker.sock"],
-    //     "chmod": ["sudo", "chmod", "660", "/var/run/docker.sock"]
-    // },
+    "postCreateCommand": "sudo chown -R root:docker /var/run/docker.sock && sudo chmod 660 /var/run/docker.sock",
     "forwardPorts": [5432]
 }

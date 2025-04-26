@@ -1,4 +1,8 @@
-FROM python:3.9-slim
+# This Dockerfile is used to create a development container for Visual Studio Code.
+# It installs necessary tools and dependencies for development.
+# Use the official Python image as a base
+
+FROM python:3.11-slim-bookworm
 
 # Copy scripts to container
 COPY /scripts/*.sh /tmp/
@@ -10,25 +14,38 @@ RUN chmod +x /tmp/*.sh
 RUN /tmp/install_dependencies.sh
 
 # Create vscode user
-RUN /tmp/create_vscode_user.sh
+RUN /tmp/create_user_vscode.sh
+
+# Install postgresql client
+RUN /tmp/install_cli_psql.sh
 
 # Install Docker CLI
-RUN /tmp/install_docker_cli.sh
-
-# Install kubectl
-RUN /tmp/install_kubectl.sh
+RUN /tmp/install_cli_docker.sh
 
 # Install AWS CLI
-RUN /tmp/install_aws_cli.sh
+RUN /tmp/install_cli_aws.sh
 
 # Install Terraform
-RUN /tmp/install_terraform.sh
+RUN /tmp/install_cli_terraform.sh
 
 # Clean up scripts
 RUN rm -f /tmp/*.sh
 
 # Switch to vscode user
 USER vscode
+
+# Set the working directory
 WORKDIR /home/vscode
+
+# Set the default shell to bash
+SHELL ["/bin/bash", "-c"]
+
+# Set the default locale to UTF-8
+ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
+
+# Set the default timezone to UTC
+ENV TZ=UTC
+# Set the default editor to code
+ENV EDITOR=code
 
 ENV PIP_NO_CACHE_DIR=1
