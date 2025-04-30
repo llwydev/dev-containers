@@ -1,4 +1,4 @@
 .env
 *.code-workspace
 .vscode/
-DEV/
+PROJECTS/
