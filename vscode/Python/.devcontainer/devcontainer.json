@@ -1,0 +1,20 @@
+{
+    "name": "Dev: Python3.9 + PostgreSQL",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "dev",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "AmazonWebServices.aws-toolkit-vscode",
+                "GitLab.gitlab-workflow",
+                "HashiCorp.terraform"
+            ]
+        },
+        "settings": {
+            "terminal.integrated.shell.linux": "/bin/bash"
+        } 
+    },
+    "postCreateCommand": "sudo chown -R root:docker /var/run/docker.sock && sudo chmod 660 /var/run/docker.sock",
+    "forwardPorts": [5432]
+}

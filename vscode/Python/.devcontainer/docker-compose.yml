@@ -1,0 +1,47 @@
+services:
+  dev:
+    container_name: devcontainer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace
+      - ~/.aws:/home/vscode/.aws:ro
+      - db_data:/var/lib/postgresql/data:ro
+      - ~/.terraform.d:/home/vscode/.terraform.d:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - PYTHONUNBUFFERED=1
+      - SHELL=/bin/bash
+    working_dir: /workspace
+    user: root
+    entrypoint: ["/bin/bash", "-c", "while true; do sleep 1000; done"]
+    networks:
+      - dev-net
+
+  db:
+    container_name: postgresql
+    image: bitnami/postgresql:latest
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - dev-net
+    depends_on:
+      - dev
+
+
+volumes:
+  db_data:
+
+networks:
+  dev-net:
+    driver: bridge
