@@ -13,11 +13,11 @@
                 "ms-python.python",
                 "ms-python.vscode-pylance",
 
-                // Frameworks - Flask & Django
+                // Framework Support - Flask & Django
                 "RabinHansda.flask-builder",
                 "batisteo.vscode-django",
 
-                // Tools - Documentation & Code Generation
+                // Tools
                 "ms-toolsai.jupyter",
                 "ms-vscode.speech",
                 "VisualStudioExptTeam.vscodeintellicode",
