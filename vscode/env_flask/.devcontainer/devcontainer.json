@@ -1,5 +1,5 @@
 {
-    "name": "ENV FLASK",
+    "name": "Dev Container - Flask + PostgreSQL",
     "dockerComposeFile": "docker-compose.yml",
     "service": "dev",
     "workspaceFolder": "/workspace",
