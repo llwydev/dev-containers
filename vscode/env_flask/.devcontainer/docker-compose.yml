@@ -1,6 +1,6 @@
 services:
-  env-flask:
-    container_name: env_flask
+  dev:
+    container_name: flask
     build:
       context: .
       dockerfile: Dockerfile
@@ -19,7 +19,7 @@ services:
     networks:
       - dev-net
 
-  database:
+  db:
     container_name: postgresql
     image: bitnami/postgresql:latest
     env_file:
@@ -36,7 +36,7 @@ services:
     networks:
       - dev-net
     depends_on:
-      - env-flask
+      - dev
 
 
 volumes:
