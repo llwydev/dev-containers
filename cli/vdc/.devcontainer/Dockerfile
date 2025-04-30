@@ -40,9 +40,6 @@ WORKDIR /home/vscode
 # Set the default shell to bash
 SHELL ["/bin/bash", "-c"]
 
-# Set the environment variable to non-interactive mode
-ENV DEBIAN_FRONTEND=noninteractive
-
 # Prevent Python from writing .pyc files
 ENV PYTHONDONTWRITEBYTECODE=1
 
