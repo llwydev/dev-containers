@@ -8,9 +8,7 @@
             "extensions": [
                 "AmazonWebServices.aws-toolkit-vscode",
                 "GitLab.gitlab-workflow",
-                "HashiCorp.terraform",
-                "ms-ossdata.vscode-postgresql",
-                "redhat.vscode-yaml"
+                "HashiCorp.terraform"
             ]
         },
         "settings": {
