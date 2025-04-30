@@ -1,5 +1,5 @@
 {
-    "name": "Base Dev Container - Python 3.9-slim",
+    "name": "Dev Container:Base - Python 3.9-slim",
     "build": {
         "context": ".",
         "dockerfile": "Dockerfile"
@@ -7,21 +7,24 @@
     "remoteUser": "vscode",
     "customizations": {
         "vscode": {
-            "extensions": [ 
-                // Python
+            "extensions": [
+                // Language Support - Python
                 "ms-python.debugpy",
                 "ms-python.python",
-                "ms-python.vscode-pylance", 
-                
-                // Tools    
+                "ms-python.vscode-pylance",
+
+                // Frameworks - Flask & Django
+                "RabinHansda.flask-builder",
+                "batisteo.vscode-django",
+
+                // Tools - Documentation & Code Generation
                 "ms-toolsai.jupyter",
                 "ms-vscode.speech",
                 "VisualStudioExptTeam.vscodeintellicode",
-
-                // Linting & Formatting
+                
+                // Linters
                 "redhat.vscode-yaml",
                 "trunk.io"
-                
             ]
         }
     }
