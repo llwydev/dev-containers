@@ -1,5 +1,5 @@
 {
-    "name": "Dev Container - Flask",
+    "name": "Base Python Dev Container - Python 3.9",
     "build": {
         "context": ".",
         "dockerfile": "Dockerfile"
@@ -17,12 +17,11 @@
                 "ms-toolsai.jupyter",
                 "ms-vscode.speech",
                 "VisualStudioExptTeam.vscodeintellicode",
-                
-                 // Scaffolding & Templates
-                 "rabinHansda.flask-builder",
 
                 // Linting & Formatting
+                "redhat.vscode-yaml",
                 "trunk.io"
+                
             ]
         }
     }
