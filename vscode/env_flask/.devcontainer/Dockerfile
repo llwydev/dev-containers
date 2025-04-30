@@ -1,1 +1,1 @@
-FROM llwydev/vdc_env_flask:v1.0
+FROM llwydev/vdc_env_flask:v1.2
