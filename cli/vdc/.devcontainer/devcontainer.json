@@ -1,5 +1,5 @@
 {
-    "name": "Base Python Dev Container - Python 3.9",
+    "name": "Base Dev Container - Python 3.9-slim",
     "build": {
         "context": ".",
         "dockerfile": "Dockerfile"
