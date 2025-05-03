@@ -1,5 +1,5 @@
 {
-    "name": "Dev Container - Flask",
+    "name": "Dev Container:Base - Python 3.9-slim",
     "build": {
         "context": ".",
         "dockerfile": "Dockerfile"
@@ -7,25 +7,23 @@
     "remoteUser": "vscode",
     "customizations": {
         "vscode": {
-            "extensions": [ 
-                // Python
+            "extensions": [
+                // Language Support - Python
                 "ms-python.debugpy",
                 "ms-python.python",
-                "ms-python.vscode-pylance", 
-                
-                // Code Completion
-                "Codeium.codeium",
+                "ms-python.vscode-pylance",
+
+                // Framework Support - Flask & Django
+                "RabinHansda.flask-builder",
+                "batisteo.vscode-django",
+
+                // Tools
                 "ms-toolsai.jupyter",
-                "VisualStudioExptTeam.vscodeintellicode",
-
-                // Misc
-                "ms-toolsai.jupyter-keymap",
                 "ms-vscode.speech",
+                "VisualStudioExptTeam.vscodeintellicode",
                 
-                 // Scaffolding & Templates
-                 "rabinHansda.flask-builder",
-
-                // Linting & Formatting
+                // Linters
+                "redhat.vscode-yaml",
                 "trunk.io"
             ]
         }
