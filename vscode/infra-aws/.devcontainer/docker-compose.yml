@@ -1,0 +1,21 @@
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace
+      - ~/.aws:/home/vscode/.aws:ro
+      - ~/.terraform.d:/home/vscode/.terraform.d:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - SHELL=/bin/bash
+    working_dir: /workspace
+    user: root
+    entrypoint: ["/bin/bash", "-c", "while true; do sleep 1000; done"]
+    networks:
+      - dev-net
+      
+networks:
+  dev-net:
+    driver: bridge

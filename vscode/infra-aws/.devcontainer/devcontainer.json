@@ -1,0 +1,25 @@
+{
+    "name": "DevContainer: AWS + Docker + Terraform",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "dev",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "AmazonWebServices.aws-toolkit-vscode",
+                "codeium.codeium",
+                "GitLab.gitlab-workflow",
+                "HashiCorp.terraform",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "redhat.vscode-yaml",
+                "trunk.io"
+            ]
+        },
+        "settings": {
+            "terminal.integrated.shell.linux": "/bin/bash"
+        } 
+    },
+    "postCreateCommand": "sudo chown -R root:docker /var/run/docker.sock && sudo chmod 660 /var/run/docker.sock",
+    "forwardPorts": [5432]
+}

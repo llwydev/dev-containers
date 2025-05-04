@@ -1,0 +1,11 @@
+{
+    "name": "DevContainer: Infra Tools - Base",
+    "build": {
+        "context": ".",
+        "dockerfile": "Dockerfile",
+        "cacheFrom": ["type=local,src=/tmp/cache/docker-build"],
+        "cacheTo": ["type=local,dest=/tmp/cache/docker-build"]
+    },
+    "remoteUser": "vscode",
+    "customizations": {}
+}
